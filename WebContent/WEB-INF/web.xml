@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<security-role>
+		<role-name>role1</role-name>
+	</security-role>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>HelloJSP</web-resource-name>
+			<url-pattern>/Chapter_10/security.jsp</url-pattern>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<description></description>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/Chapter_10/login.jsp</form-login-page>
+			<form-error-page>/Chapter_10/login_failed.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/Chapter_11/exception_error.jsp</location>
+	</error-page>
+</web-app>
